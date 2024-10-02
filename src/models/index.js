@@ -19,3 +19,10 @@ db.Team = require('./team.model')(sequelize, Sequelize);
 db.trainer = require('./trainer.model')(sequelize,Sequelize);
 db.PokemonTeam= require('./pokemonTeam.model')(sequelize,Sequelize)
 module.exports = db;
+
+// Establecer las relaciones
+
+db.trainer.hasMany(db.Team, { foreignKey: 'trainer_id' });
+db.Team.belongsTo(db.trainer, { foreignKey: 'trainer_id' });
+db.Team.hasMany(db.PokemonTeam, { foreignKey: 'team_id' });
+db.PokemonTeam.belongsTo(db.Team, { foreignKey: 'team_id' });

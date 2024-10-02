@@ -58,3 +58,29 @@ exports.deleteTrainer = async (req, res) => {
         return res.status(500).json({ error: 'Error al eliminar el entrenador' });
     }
 };
+
+
+//update 
+
+exports.updateTrainer = async (req, res) => {
+    const { id_trainer } = req.params; 
+    const updatedTrainerData = req.body; 
+  
+    try {
+        const [updatedRows] = await Trainer.update(updatedTrainerData, {
+            where: { id_trainer: id_trainer } // Actualiza el entrenador según el id
+        });
+
+        if (updatedRows === 0) {
+            return res.status(404).json({ message: 'Entrenador no encontrado' });
+        }
+
+        // Opcional: puedes obtener el entrenador actualizado y devolverlo si lo necesitas
+        const updatedTrainer = await Trainer.findByPk(id_trainer);
+        res.status(200).json(updatedTrainer);
+    } catch (error) {
+        console.error('Error al actualizar el entrenador:', error);
+        res.status(500).json({ message: 'Error al actualizar el entrenador' });
+    }
+};
+

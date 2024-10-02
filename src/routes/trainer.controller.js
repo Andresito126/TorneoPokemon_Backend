@@ -14,4 +14,7 @@ router.get('/getTrainer/:id', trainerController.getTrainerById);
 // borrar
 router.delete('/deleteTrainer/:id', trainerController.deleteTrainer);
 
+//edit
+router.put('/updateTrainer/:id_trainer', trainerController.updateTrainer);
+
 module.exports = router;
