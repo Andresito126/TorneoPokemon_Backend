@@ -15,12 +15,7 @@ db.ORM = Sequelize;
 db.connection = sequelize;
 
 // Importar modelos
-
-// Configurar asociaciones
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-      db[modelName].associate(db);
-  }
-});
-
+db.Team = require('./team.model')(sequelize, Sequelize);
+db.trainer = require('./trainer.model')(sequelize,Sequelize);
+db.PokemonTeam= require('./pokemonTeam.model')(sequelize,Sequelize)
 module.exports = db;
