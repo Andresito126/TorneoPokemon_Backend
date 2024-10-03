@@ -1,12 +1,11 @@
-module.exports=(sequelize, DataTypes)=>{
-
-    const Team = sequelize.define('Team',{
-        id_team:{
+module.exports = (sequelize, DataTypes) => {
+    const Team = sequelize.define('Team', {
+        id_team: {
             type: DataTypes.INTEGER,
-            autoIncrement:true,
+            autoIncrement: true,
             primaryKey: true
         },
-        trainer_id: {  
+        trainer_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
             references: {
@@ -14,29 +13,27 @@ module.exports=(sequelize, DataTypes)=>{
                 key: 'id_trainer'
             }
         },
-        team_name:{
+        team_name: {
             type: DataTypes.STRING,
-            allowFalse: null,
-
+            allowNull: false 
         },
-        creation_date:{
+        creation_date: {
             type: DataTypes.DATE,
             allowNull: false
         },
-        battle_points:{
+        battle_points: {
             type: DataTypes.INTEGER,
-            allowNull:false
+            allowNull: false
         },
-        description:{
+        description: {
             type: DataTypes.STRING,
-            allowNull:false
+            allowNull: false
         },
-        total_pokemon:{
+        total_pokemon: {
             type: DataTypes.INTEGER,
-            allowNull:false,
+            allowNull: false
         }
-    },{ timestamps: false });
+    }, { timestamps: false });
 
     return Team;
-
 };

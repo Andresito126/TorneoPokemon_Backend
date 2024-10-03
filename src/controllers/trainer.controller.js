@@ -1,7 +1,7 @@
 const db = require('../models'); 
 const Trainer = db.trainer; 
 
-// crear un nuevo entrenador
+//creat
 exports.createTrainer = async (req, res) => {
     try {
         console.log('Request Body:', req.body);
@@ -13,7 +13,7 @@ exports.createTrainer = async (req, res) => {
     }
 };
 
-// get todos los entrenadores
+// get all
 exports.getAllTrainers = async (req, res) => {
     try {
         const trainers = await Trainer.findAll(); 
@@ -24,7 +24,7 @@ exports.getAllTrainers = async (req, res) => {
     }
 };
 
-// get un entrenador por ID
+// get con id
 exports.getTrainerById = async (req, res) => {
     try {
         const trainer = await Trainer.findByPk(req.params.id);
@@ -68,7 +68,7 @@ exports.updateTrainer = async (req, res) => {
   
     try {
         const [updatedRows] = await Trainer.update(updatedTrainerData, {
-            where: { id_trainer: id_trainer } // Actualiza el entrenador según el id
+            where: { id_trainer: id_trainer } // actualiza el entrenador segun el id
         });
 
         if (updatedRows === 0) {

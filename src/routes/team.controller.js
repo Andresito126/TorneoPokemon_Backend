@@ -2,21 +2,19 @@ const express = require('express');
 const router = express.Router();
 const teamController = require('../controllers/team.controller');
 
-
-// crear un nuevo entrenador
+// create un nuevo equipo
 router.post('/addTeam', teamController.createTeam);
 
-// obtener todos los entrenadores
+// get todos los equipos
 router.get('/getTeams', teamController.getAllTeams);
 
-// obtener un entrenador por ID
+// get un equipo por id
 router.get('/getTeam/:id', teamController.getTeamById);
 
-// borrar
-router.delete('/deleteTeam/:id', teamController.deleteTeam);
-
-// edit
+// update un equipo
 router.put('/updateTeam/:id', teamController.updateTeam);
 
+// delete un equipo
+router.delete('/deleteTeam/:id', teamController.deleteTeam);
 
 module.exports = router;

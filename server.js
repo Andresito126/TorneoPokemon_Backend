@@ -3,7 +3,7 @@ const app = require('./src/app');
 const {connection} = require('./src/models');
 
 const PORT = 3000;
-connection.sync() // Sincroniza los modelos con la base de datos
+connection.sync() // sincroniza los modelos con la base de datos
   .then(() => {
     console.log('Conexión con la base de datos exitosa y modelos sincronizados.');
     const server = http.createServer(app);

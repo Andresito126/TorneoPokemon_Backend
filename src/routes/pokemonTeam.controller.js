@@ -2,13 +2,15 @@ const express = require('express');
 const router = express.Router();
 const pokemonTeamController = require('../controllers/pokemonTeam.controller');
 
-// Agregar un Pokemon a un equipo
-router.post('/addPokemon', pokemonTeamController.addPokemonToTeam);
 
-// Obtener todos los Pokemon de un equipo
-router.get('/getPokemons/:team_id', pokemonTeamController.getPokemonsByTeamId);
+router.get('/getPokemonsByTeamId/:team_id', pokemonTeamController.getPokemonsByTeamId);
 
-// Eliminar un Pokemon de un equipo
-router.delete('/removePokemon/:id', pokemonTeamController.removePokemonFromTeam);
+// delete un pokemon de un equipo
+
+router.delete('/removePokemonFromTeam/:id', pokemonTeamController.removePokemonFromTeam);
+
+//add pokemon al euqipo
+router.post('/addPokemonToTeam', pokemonTeamController.addPokemonToTeam);
 
 module.exports = router;
+

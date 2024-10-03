@@ -1,22 +1,18 @@
-module.exports= (sequelize, DataTypes)=>{
- 
-    const PokemonTeam = sequelize.define ('PokemonTeam', {
-
-        id_pokemon_team:{
+module.exports = (sequelize, DataTypes) => {
+    const PokemonTeam = sequelize.define('PokemonTeam', {
+        id_pokemon_team: {
             type: DataTypes.INTEGER,
-            autoIncrement:true,
+            autoIncrement: true,
             primaryKey: true
         },
-
-        team_id:{
+        team_id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            references:{
+            references: {
                 model: 'Teams',
                 key: 'id_team'
             }
         },
-
         pokemon_id: {
             type: DataTypes.INTEGER,
             allowNull: false
@@ -24,10 +20,8 @@ module.exports= (sequelize, DataTypes)=>{
         pokemon_name: {
             type: DataTypes.STRING,
             allowNull: false
-        }   
-    },{ timestamps: false });
-
+        }
+    }, { timestamps: false });
 
     return PokemonTeam;
-
 };
